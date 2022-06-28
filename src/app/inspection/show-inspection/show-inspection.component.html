@@ -1,1 +1,27 @@
-<p>show-inspection works!</p>
+<div class="card mt-3">
+    <div class="card-header">
+      <h2>List Inspections</h2>
+    </div>
+    <div class="card-body">
+      
+      <table class="table table-hover table-bordered">
+        <thead class="bg-dark">
+          <tr>
+            <th class="text-white">Id</th>
+            <th class="text-white">InspectionTypeId</th>
+            <th class="text-white">Status</th>
+            <th class="text-white">Comment</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let item of inspectionList$ |async">
+          <tr>
+            <td>{{item.Id}}</td>
+            <td>{{item.InspectionTypeId}}</td>
+            <td>{{item.Status}}</td>
+            <td>{{item.Comment}}</td>
+         
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
