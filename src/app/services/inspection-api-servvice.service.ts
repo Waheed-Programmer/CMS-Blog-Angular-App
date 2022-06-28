@@ -26,4 +26,38 @@ export class InspectionAPIServviceService {
     return this.http.delete(this.InspectionApIUrl + `/Inspection/${id}`)
   }
 
+   //InspectionTypes
+
+   getInspectionTypesList():Observable<any[]>{
+    return this.http.get<any>(this.InspectionApIUrl + '/InspectionTypes')
+  }
+
+  addInspectionTypes(data:any){
+    return this.http.post(this.InspectionApIUrl + '/InspectionTypes',data)
+  }
+  updateInspectionTypes(id:number|string, data:any){
+    return this.http.put(this.InspectionApIUrl + `/InspectionTypes/${id}`, data)
+  }
+
+  deleteInspectionTypes(id:number|string){
+    return this.http.delete(this.InspectionApIUrl + `/InspectionTypes/${id}`)
+  }
+
+   //Status
+
+   getStatusList():Observable<any[]>{
+    return this.http.get<any>(this.InspectionApIUrl + '/Status')
+  }
+
+  addStatus(data:any){
+    return this.http.post(this.InspectionApIUrl + '/Status',data)
+  }
+  updateStatus(id:number|string, data:any){
+    return this.http.put(this.InspectionApIUrl + `/Status/${id}`, data)
+  }
+
+  deleteStatus(id:number|string){
+    return this.http.delete(this.InspectionApIUrl + `/Status/${id}`)
+  }
+
 }
