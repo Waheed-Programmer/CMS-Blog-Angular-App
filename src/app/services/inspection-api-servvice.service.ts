@@ -29,7 +29,7 @@ export class InspectionAPIServviceService {
 
    //InspectionTypes
 
-   getInspectionTypesList():any{
+   getInspectionTypesList():Observable<any>{
     return this.http.get<any>(this.InspectionApIUrl + '/InspectionTypes')
   }
 

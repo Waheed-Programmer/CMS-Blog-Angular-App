@@ -18,7 +18,8 @@
         <tbody *ngFor="let item of inspectionList">
           <tr>
             <td>{{item.id}}</td>
-            <td>{{item.inspectionTypeId}}</td>
+            <td>{{inspectionTypesMap.get(item.inspectionTypeId)}}</td>
+            <!-- <td>{{item.inspectionTypeId}}</td> -->
             <td>{{item.status}}</td>
             <td>{{item.comments}}</td>
          
@@ -39,7 +40,7 @@
     </button>
   </div>
   <div class="modal-body">
-   <div *ngFor="let obj in inspectionList">{{obj.id}} -{{obj.inspectionName}</div>
+   <div *ngFor="let obj of inspectionType">{{obj.id}} -{{obj.inspectionName}}</div>
   </div>
   <div class="modal-footer">
     <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Ok</button>
