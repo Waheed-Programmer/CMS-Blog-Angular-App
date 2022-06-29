@@ -1,5 +1,6 @@
 <!-- Button trigger modal -->
-<button class="btn btn-lg btn-outline-secondary" (click)="open(mymodal)">Show InspectionType</button>
+<button class="btn btn-lg btn-outline-secondary" (click)="open(mymodal)">Show InspectionType</button>&nbsp;
+<button class="btn btn-lg btn-outline-success" (click)="open(addmodal)">Add Inspection</button>
 <div class="card mt-3">
     <div class="card-header">
       <h2>List Inspections</h2>
@@ -29,7 +30,7 @@
 
       
 
-<!-- Modal -->
+<!-- Modal to show List inspection -->
 
     
 <ng-template #mymodal let-modal>
@@ -40,9 +41,44 @@
     </button>
   </div>
   <div class="modal-body">
-   <div *ngFor="let obj of inspectionType">{{obj.id}} -{{obj.inspectionName}}</div>
+   <!-- <div *ngFor="let obj of inspectionType">{{obj.id}} -{{obj.inspectionName}}</div> -->
+   <table class="table table-hover table-bordered">
+    <thead class="bg-dark">
+      <tr>
+        <th class="text-white">Id</th>
+        <th class="text-white">Inspection Type</th>
+       
+      </tr>
+    </thead>
+    <tbody *ngFor="let item of inspectionType">
+      <tr>
+        <td>{{item.id}}</td>
+        <td>{{item.inspectionName}}</td>
+       
+     
+      </tr>
+    </tbody>
+  </table>
   </div>
   <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Ok</button>
+  </div>
+</ng-template>
+
+<ng-template #addmodal let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">{{modalTitle}}</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">×</span>
+    </button>
+  </div>
+  <div class="modal-body">
+   <!-- <div *ngFor="let obj of inspectionType">{{obj.id}} -{{obj.inspectionName}}</div> -->
+ <app-add-edit-inspection></app-add-edit-inspection>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-primary" (click)="modalAdd()">Add</button>
+    <button type="button" class="btn btn-outline-success" (click)="modalEdit()">Update</button>
     <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Ok</button>
   </div>
 </ng-template>

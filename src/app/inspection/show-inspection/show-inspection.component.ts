@@ -12,8 +12,13 @@ export class ShowInspectionComponent implements OnInit {
   closeResult: string = '';
   inspectionList: any;
   inspectionType: any;
-  inspectionTypesList: any=[];
+  inspectionTypesListMap: any=[];
 
+
+  //Add variables(Properties)
+  modalTitle:string = '';
+  activateAddEditInspectionComponent:boolean=false;
+  inspection:any;
   // Map to display data associate with foreign key
   inspectionTypesMap: Map<number, string> = new Map();
 
@@ -47,24 +52,37 @@ export class ShowInspectionComponent implements OnInit {
 
   ngOnInit(): void {
     this.service.getInspectionList().subscribe((response: any) => {
-      debugger;
+      
       console.log('Data', response);
       this.inspectionList = response;
-      this.service.getInspectionTypesList().subscribe((value: any) => {
-        console.log(value);
-        this.inspectionType = value;
+      this.service.getInspectionTypesList().subscribe((ob: any) => {
+        console.log(ob);
+        this.inspectionType = ob;
       });
     });
     this.refreshinspectionTypesMap();
   }
 
   refreshinspectionTypesMap(){
+    
     this.service.getInspectionTypesList().subscribe((value: any) => {     
-      this.inspectionType = value;
+      this.inspectionTypesListMap = value;
 
       for(let i = 0; i<value.length; i++){
-        this.inspectionTypesMap.set(this.inspectionTypesList[i].id, this.inspectionTypesList[i].inspectionName);
+        this.inspectionTypesMap.set(this.inspectionTypesListMap[i].id,
+        this.inspectionTypesListMap[i].inspectionName);
       }
   });
 }
+
+
+//Add Method for database 
+modalAdd(){
+
+}
+//Edit Method for database
+modalEdit(){
+
+}
+
 }
