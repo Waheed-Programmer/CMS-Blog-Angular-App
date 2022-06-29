@@ -55,13 +55,6 @@ export class ShowInspectionComponent implements OnInit {
   }
 
 
-  openModal(){
-    
-    
-  }
-
-  // closModal(){
-  //   this.formModal.hide();
-  // }
+  
 
 }
