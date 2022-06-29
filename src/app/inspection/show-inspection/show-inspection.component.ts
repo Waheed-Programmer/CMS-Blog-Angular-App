@@ -10,21 +10,29 @@ import { InspectionAPIServviceService } from 'src/app/services/inspection-api-se
 })
 export class ShowInspectionComponent implements OnInit {
 
-  inspectionList$! : Observable<any[]>;
-  inspectionType$! : Observable<any[]>;
-  inspectionTypesList: any=[];
+  inspectionList : any=[];
+  inspectionType : any;
+  inspectionTypesList: any;
 
   // Map to display data associate with foreign key
   inspectionTypesMap: Map<number, string> = new Map()
   
 
   constructor(private service: InspectionAPIServviceService) {
-
-    this.inspectionList$ = this.service.getInspectionList();
+  this.LoadInspection();    
 
    }
 
   ngOnInit(): void {
+   
+    
+  }
+  LoadInspection(){
+    this.service.getInspectionList().subscribe((response:any)=>{
+      debugger
+      console.log("Data",response);
+      this.inspectionList = response;
+    });
   }
 
 }

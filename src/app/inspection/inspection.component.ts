@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ShowInspectionComponent } from './show-inspection/show-inspection.component';
 
 @Component({
   selector: 'app-inspection',
@@ -11,5 +12,5 @@ export class InspectionComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  
 }

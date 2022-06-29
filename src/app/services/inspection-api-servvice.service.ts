@@ -11,8 +11,9 @@ export class InspectionAPIServviceService {
 
   //Inspections
 
-  getInspectionList():Observable<any[]>{
-    return this.http.get<any>(this.InspectionApIUrl + '/Inspections')
+  getInspectionList(): Observable<any>{
+    debugger
+    return this.http.get<any>(this.InspectionApIUrl+'/Inspections/GetInspections')
   }
 
   addInspection(data:any){
@@ -28,7 +29,7 @@ export class InspectionAPIServviceService {
 
    //InspectionTypes
 
-   getInspectionTypesList():Observable<any[]>{
+   getInspectionTypesList():any{
     return this.http.get<any>(this.InspectionApIUrl + '/InspectionTypes')
   }
 
@@ -45,7 +46,7 @@ export class InspectionAPIServviceService {
 
    //Status
 
-   getStatusList():Observable<any[]>{
+   getStatusList():any{
     return this.http.get<any>(this.InspectionApIUrl + '/Status')
   }
 
