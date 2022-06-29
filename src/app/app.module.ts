@@ -7,7 +7,7 @@ import { InspectionComponent } from './inspection/inspection.component';
 import { ShowInspectionComponent } from './inspection/show-inspection/show-inspection.component';
 import { AddEditInspectionComponent } from './inspection/add-edit-inspection/add-edit-inspection.component';
 import { InspectionAPIServviceService } from './services/inspection-api-servvice.service';
-
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -17,6 +17,7 @@ import { InspectionAPIServviceService } from './services/inspection-api-servvice
     AddEditInspectionComponent,
   ],
   imports: [
+    NgbModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule

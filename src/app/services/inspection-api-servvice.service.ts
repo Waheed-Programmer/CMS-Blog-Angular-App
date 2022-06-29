@@ -12,8 +12,8 @@ export class InspectionAPIServviceService {
   //Inspections
 
   getInspectionList(): Observable<any>{
-    debugger
-    return this.http.get<any>(this.InspectionApIUrl+'/Inspections/GetInspections')
+   
+    return this.http.get<any>(this.InspectionApIUrl+'/Inspections')
   }
 
   addInspection(data:any){
