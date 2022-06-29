@@ -78,11 +78,50 @@ export class ShowInspectionComponent implements OnInit {
 
 //Add Method for database 
 modalAdd(){
-
+this.inspection = {
+  id: 0,
+  status:null,
+  comments:null,
+  inspectionTypeId:null
+}
+this.modalTitle ="Add Inspection";
+this.activateAddEditInspectionComponent = true;
 }
 //Edit Method for database
-modalEdit(){
-
+modalEdit(item:any) {
+  
+  this.inspection = item;
+  this.modalTitle = "Edit Inspection";
+  this.activateAddEditInspectionComponent = true;
 }
+modalClose() {
+  this.activateAddEditInspectionComponent = false;
+  this.inspectionList = this.service.getInspectionList();
+}
+
+delete(item:any) {
+  if(confirm(`Are you sure you want to delete inspection ${item.id}`)) {
+    debugger
+    this.service.deleteInspection(item.id).subscribe(res => {
+      this.inspectionList = res;
+      var closeModalBtn = document.getElementById('add-edit-modal-close');
+    if(closeModalBtn) {
+      closeModalBtn.click();
+    }
+
+    var showDeleteSuccess = document.getElementById('delete-success-alert');
+    if(showDeleteSuccess) {
+      showDeleteSuccess.style.display = "block";
+    }
+    setTimeout(function() {
+      if(showDeleteSuccess) {
+        showDeleteSuccess.style.display = "none"
+      }
+    }, 4000);
+    this.inspectionList = this.service.getInspectionList();
+    })
+  }
+}
+
 
 }

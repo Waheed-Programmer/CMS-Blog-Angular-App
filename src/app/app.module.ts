@@ -8,7 +8,7 @@ import { ShowInspectionComponent } from './inspection/show-inspection/show-inspe
 import { AddEditInspectionComponent } from './inspection/add-edit-inspection/add-edit-inspection.component';
 import { InspectionAPIServviceService } from './services/inspection-api-servvice.service';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +20,8 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     NgbModule,
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [InspectionAPIServviceService],
   bootstrap: [AppComponent]
