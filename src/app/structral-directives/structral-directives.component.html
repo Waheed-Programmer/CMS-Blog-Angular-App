@@ -1,4 +1,10 @@
 <div>
-  <p>structral-directives works!</p>
+  <h1>Welcome to The App!</h1>
+  <h3 *ngIf="displayName; else elseBlock">
+    Code With Angular
+  </h3>
+  <ng-template #elseBlock>
+    <h3>Name is Hidden</h3>
+  </ng-template>
 
 </div>

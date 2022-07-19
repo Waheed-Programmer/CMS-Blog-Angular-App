@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StructralDirectivesComponent implements OnInit {
 
+  displayName = false;
   constructor() { }
 
   ngOnInit(): void {
