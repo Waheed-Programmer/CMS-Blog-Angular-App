@@ -24,7 +24,7 @@ export class InspectionAPIServviceService {
   }
 
   deleteInspection(id:number|string){
-    return this.http.delete(this.InspectionApIUrl + `/Inspection/${id}`)
+    return this.http.delete(this.InspectionApIUrl + `/Inspections/${id}`)
   }
 
    //InspectionTypes

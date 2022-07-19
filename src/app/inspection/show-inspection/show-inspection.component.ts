@@ -103,7 +103,7 @@ delete(item:any) {
   if(confirm(`Are you sure you want to delete inspection ${item.id}`)) {
     debugger
     this.service.deleteInspection(item.id).subscribe(res => {
-      this.inspectionList = res;
+      
       var closeModalBtn = document.getElementById('add-edit-modal-close');
     if(closeModalBtn) {
       closeModalBtn.click();

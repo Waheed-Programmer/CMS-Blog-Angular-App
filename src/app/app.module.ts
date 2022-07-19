@@ -9,12 +9,14 @@ import { AddEditInspectionComponent } from './inspection/add-edit-inspection/add
 import { InspectionAPIServviceService } from './services/inspection-api-servvice.service';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
+import { StructralDirectivesComponent } from './structral-directives/structral-directives.component';
 @NgModule({
   declarations: [
     AppComponent,
     InspectionComponent,
     ShowInspectionComponent,
     AddEditInspectionComponent,
+    StructralDirectivesComponent,
   ],
   imports: [
     NgbModule,
