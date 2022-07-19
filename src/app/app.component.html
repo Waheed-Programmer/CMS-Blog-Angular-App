@@ -3,8 +3,9 @@
 <div class="container">
 
   <div class="row">
+    <h2>  {{message}}</h2>
     <div class="col-md-12">
-    <app-structral-directives [parentData]="name"></app-structral-directives>
+    <app-structral-directives (childEvent)="message=$event" [parentData]="name"></app-structral-directives>
     </div>
   </div>
 </div>
