@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-structral-directives',
@@ -7,7 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StructralDirectivesComponent implements OnInit {
 
-  displayName = false;
+  @Input('parentData') public name:any
+  displayName = true;
+  public color = "Yellow";
+  public colors = ["red" ,"Yellow","Green","Mehroon"]
   constructor() { }
 
   ngOnInit(): void {

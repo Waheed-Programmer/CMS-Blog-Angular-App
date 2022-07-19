@@ -7,4 +7,18 @@
     <h3>Name is Hidden</h3>
   </ng-template>
 
+  <div [ngSwitch]="color">
+    <div *ngSwitchCase="'red'">You picked color is Red!</div>
+    <div *ngSwitchCase="'Green'">You picked color is Green!</div>
+    <div *ngSwitchCase="'Blue'">You picked color is Blue!</div>
+    <div *ngSwitchCase="'Yellow'">You picked color is Yellow!</div>
+    <div *ngSwitchDefault>You picked color Again</div>
+  </div>
+  <div *ngFor="let item of colors index as i first as f">
+    {{i}}
+    {{f}}
+    {{item}}
+  </div>
+ <h1>Parent Data Show</h1>
+  {{name}}
 </div>
