@@ -2,7 +2,7 @@
 <div class="container mt-5 mb-2">
   <h2>Template Driven Form with Validations</h2>
   <div class="col-md-6">
-    <form #contactForm = "ngForm" class="form" (ngSubmit)="formSubmit(contactForm.value)">
+    <form #contactForm = "ngForm" class="form" (ngSubmit)="formSubmit(contactForm.value); contactForm.reset();">
       <div class="form-group mb-3">
         <input type="text" name="name" required class="form-control" #nameValid="ngModel" placeholder="Eneter your name" ngModel >
         <span class="err" *ngIf="nameValid.invalid && nameValid.touched">Please enter your name</span>

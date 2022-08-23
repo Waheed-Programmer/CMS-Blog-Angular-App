@@ -4,15 +4,17 @@ import {HttpClientModule} from '@angular/common/http'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { InspectionAPIServviceService } from './services/inspection-api-servvice.service';
-import { FormsModule } from '@angular/forms';
+import { FormsModule ,ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TemplateFormComponent } from './template-form/template-form.component';
+import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     TemplateFormComponent,
+    ReactiveFormComponent,
 
   ],
   imports: [
@@ -22,6 +24,7 @@ import { TemplateFormComponent } from './template-form/template-form.component';
     HttpClientModule,
     FormsModule,
     NgbModule,
+    ReactiveFormsModule
 
   ],
   providers: [InspectionAPIServviceService],

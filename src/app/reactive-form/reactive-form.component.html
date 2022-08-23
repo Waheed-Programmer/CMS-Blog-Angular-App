@@ -1,22 +1,22 @@
 
 <div class="container mt-5 mb-2">
-  <h2>Template Driven Form with Validations</h2>
+  <h2>Reactive Form with Validations</h2>
   <div class="col-md-6">
-    <form  class="form" >
+    <form  class="form" [formGroup]="contactForm" (ngSubmit)="contactForm.value" >
       <div class="form-group mb-3">
-        <input type="text" name="name" required class="form-control"  placeholder="Eneter your name"  >
+        <input type="text" formControlName="name" name="name" required class="form-control"  placeholder="Eneter your name"  >
 
       </div>
       <div class="form-group mb-3">
-        <input type="email" name="email" required class="form-control"  placeholder="Eneter your email"  >
+        <input type="email" formControlName="email" name="email" required class="form-control"  placeholder="Eneter your email"  >
 
       </div>
       <div class="form-group mb-3">
-        <input type="number" name="number" required class="form-control"  placeholder="Eneter your number" ngModel>
+        <input type="number" formControlName="number" name="number" required class="form-control"  placeholder="Eneter your number" >
 
       </div>
       <div class="form-group">
-        <input type="submit" class="btn btn-success"  value="Submit">
+        <input type="submit" class="btn btn-success" [disabled]="contactForm.invalid"  value="Submit">
       </div>
     </form>
   </div>
