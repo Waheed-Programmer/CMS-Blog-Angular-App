@@ -9,4 +9,8 @@ export class AppComponent {
   title = 'Shop-App';
   name = "Angular Name "
   message:any;
+
+  formSubmit(Data:any){
+    console.log(Data);
+  }
 }
