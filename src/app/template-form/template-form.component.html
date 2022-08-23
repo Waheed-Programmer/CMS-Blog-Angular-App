@@ -1,19 +1,22 @@
 
-<div class="container mt-5">
-
+<div class="container mt-5 mb-2">
+  <h2>Template Driven Form with Validations</h2>
   <div class="col-md-6">
-    <form #contactForm = "ngForm" class="form" (ngSubmit)="formSubmit(contactForm)">
+    <form #contactForm = "ngForm" class="form" (ngSubmit)="formSubmit(contactForm.value)">
       <div class="form-group mb-3">
-        <input type="text" name="name" class="form-control" placeholder="Eneter your name" ngModel >
+        <input type="text" name="name" required class="form-control" #nameValid="ngModel" placeholder="Eneter your name" ngModel >
+        <span class="err" *ngIf="nameValid.invalid && nameValid.touched">Please enter your name</span>
       </div>
       <div class="form-group mb-3">
-        <input type="email" name="email" class="form-control" placeholder="Eneter your email" ngModel >
+        <input type="email" name="email" required class="form-control" #emailValid="ngModel" placeholder="Eneter your email" ngModel >
+        <span class="err" *ngIf="emailValid.invalid && emailValid.touched">Please enter your email</span>
       </div>
       <div class="form-group mb-3">
-        <input type="number" name="number" class="form-control" placeholder="Eneter your number" ngModel>
+        <input type="number" name="number" required class="form-control" #numberValid="ngModel" placeholder="Eneter your number" ngModel>
+        <span class="err" *ngIf="numberValid.invalid && numberValid.touched">Please enter your number</span>
       </div>
       <div class="form-group">
-        <input type="submit" class="btn btn-success" value="Submit">
+        <input type="submit" class="btn btn-success" [disabled]="contactForm.invalid" value="Submit">
       </div>
     </form>
   </div>
