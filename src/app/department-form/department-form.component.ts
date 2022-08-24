@@ -8,16 +8,15 @@ import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./department-form.component.css']
 })
 export class DepartmentFormComponent implements OnInit {
-  contactForm:FormGroup;
+  depForm!:FormGroup;
   closeResult = '';
 
   @ViewChild('content') addview! : ElementRef
   constructor(private fb: FormBuilder, private modalService: NgbModal) {
 
-    this.contactForm = fb.group({
-      name: ['',Validators.required],
-      email: ['',[Validators.required,Validators.email]],
-      number: ['',Validators.required],
+    this.depForm = fb.group({
+      departmentName: ['',Validators.required],
+
     });
 
    }
@@ -25,6 +24,10 @@ export class DepartmentFormComponent implements OnInit {
 
 
   ngOnInit(): void {
+  }
+
+  SaveData(){
+    console.log(this.depForm.value)
   }
   open() {
     this.modalService.open( this.addview, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
@@ -44,5 +47,7 @@ export class DepartmentFormComponent implements OnInit {
     }
   }
 
-
+    get departmentName(){
+      return this.depForm.get('departmentName')
+    }
 }

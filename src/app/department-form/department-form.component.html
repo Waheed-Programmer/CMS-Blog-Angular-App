@@ -4,18 +4,21 @@
     <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
   </div>
   <div class="modal-body">
-    <form>
+    <form [formGroup]="depForm" (ngSubmit)="SaveData()">
       <div class="mb-3">
         <label>Department Name:</label>
         <div class="input-group">
-          <input type="text" id="departmentName" class="form-control" placeholder="Enter department name">
+          <input type="text" name="departmentName" formControlName="departmentName" class="form-control" placeholder="Enter department name">
         </div>
-
+        <span *ngIf="departmentName && departmentName.touched && departmentName.invalid" class="error">Please Enter Valid Name</span>
+        <div class="input-group">
+          <input type="submit" [disabled]="depForm.invalid" value="Save" class="btn btn-primary mt-3" >
+        </div>
       </div>
     </form>
   </div>
   <div class="modal-footer">
-    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Close</button>
   </div>
 </ng-template>
 
