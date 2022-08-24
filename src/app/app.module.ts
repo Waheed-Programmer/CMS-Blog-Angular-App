@@ -11,6 +11,7 @@ import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 import { EmployeeComponent } from './employee/employee.component';
 import { DepartmentComponent } from './department/department.component';
 import { NavbarComponent } from './layout/navbar/navbar.component';
+import { DepartmentFormComponent } from './department-form/department-form.component';
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import { NavbarComponent } from './layout/navbar/navbar.component';
     EmployeeComponent,
     DepartmentComponent,
     NavbarComponent,
+    DepartmentFormComponent,
 
   ],
   imports: [
