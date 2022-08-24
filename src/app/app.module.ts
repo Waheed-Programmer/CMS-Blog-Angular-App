@@ -9,6 +9,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TemplateFormComponent } from './template-form/template-form.component';
 import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 import { EmployeeComponent } from './employee/employee.component';
+import { DepartmentComponent } from './department/department.component';
+import { NavbarComponent } from './layout/navbar/navbar.component';
 
 
 @NgModule({
@@ -17,6 +19,8 @@ import { EmployeeComponent } from './employee/employee.component';
     TemplateFormComponent,
     ReactiveFormComponent,
     EmployeeComponent,
+    DepartmentComponent,
+    NavbarComponent,
 
   ],
   imports: [
