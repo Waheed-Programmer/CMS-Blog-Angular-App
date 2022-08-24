@@ -12,6 +12,8 @@ import { EmployeeComponent } from './employee/employee.component';
 import { DepartmentComponent } from './department/department.component';
 import { NavbarComponent } from './layout/navbar/navbar.component';
 import { DepartmentFormComponent } from './department-form/department-form.component';
+import { DepartmentServiceService } from './services/department-service.service';
+
 
 
 @NgModule({
@@ -35,7 +37,7 @@ import { DepartmentFormComponent } from './department-form/department-form.compo
     ReactiveFormsModule
 
   ],
-  providers: [InspectionAPIServviceService],
+  providers: [InspectionAPIServviceService,DepartmentServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
