@@ -1,5 +1,5 @@
 
-<div class="container mt-5 mb-2">
+<!-- <div class="container mt-5 mb-2">
   <h2>Reactive Form with Validations</h2>
   <div class="col-md-6">
     <form  class="form" [formGroup]="contactForm">
@@ -20,5 +20,31 @@
       </div>
     </form>
   </div>
-</div>
+</div> -->
 
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="mb-3">
+        <label>Department Name:</label>
+        <div class="input-group">
+          <input type="text" id="departmentName" class="form-control" placeholder="Enter department name">
+        </div>
+        <label>Department Name:</label>
+        <div class="input-group">
+          <input type="text" id="departmentName" class="form-control" placeholder="Enter department name">
+        </div>
+
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+  </div>
+</ng-template>
+
+<button class="btn  btn-primary" (click)="open()">Add </button>
