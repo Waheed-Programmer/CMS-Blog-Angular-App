@@ -13,7 +13,7 @@ export class DepartmentServiceService {
    //Fetch data all Department from data base
    getAllDepartment()
    {
-     return this.httpClient.get(this.BaseUrl + '/Department/getListDepartment')
+     return this.httpClient.get(this.BaseUrl + '/Departments/getListDepartment')
    }
 
    //Add new Department
@@ -21,18 +21,18 @@ export class DepartmentServiceService {
   insertDepartment(departmentmodel:any){
     debugger
 
-    return this.httpClient.post(this.BaseUrl + '/Department/addDepartment',departmentmodel)
+    return this.httpClient.post(this.BaseUrl + '/Departments/addDepartment',departmentmodel)
   }
 
   //Fetch data for single Department
   getDepartment(Id:any)
   {
-    return this.httpClient.get(this.BaseUrl + '/Department/GetDepartment/'+Id)
+    return this.httpClient.get(this.BaseUrl + '/Departments/GetDepartment/'+Id)
   }
 
   //Update Department from data base
   updateDepartment(id:number, Departmentmodel:any){
 
-    return this.httpClient.put(this.BaseUrl + '/Student/updateStudent/'+id,Departmentmodel)
+    return this.httpClient.put(this.BaseUrl + '/Departments/updateDepartment/'+id,Departmentmodel)
   }
 }

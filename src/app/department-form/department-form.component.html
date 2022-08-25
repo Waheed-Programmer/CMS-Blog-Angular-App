@@ -5,6 +5,7 @@
   </div>
   <div class="modal-body">
     <form [formGroup]="depForm" (ngSubmit)="SaveData()">
+      <input type="hidden" name="departmentId" formControlName="departmentId">
       <div class="mb-3">
         <label>Department Name:</label>
         <div class="input-group">

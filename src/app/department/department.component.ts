@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { DepartmentFormComponent } from '../department-form/department-form.component';
+
+import { DepartmentServiceService } from '../services/department-service.service';
 
 @Component({
   selector: 'app-department',
@@ -7,9 +10,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DepartmentComponent implements OnInit {
 
-  constructor() { }
+  constructor(private service: DepartmentServiceService) { }
+  departList:any;
+  @ViewChild(DepartmentFormComponent) UpdateView! : DepartmentFormComponent
+
 
   ngOnInit(): void {
+    this.getDepartmentList()
+  }
+  getDepartmentList(){
+    debugger
+    this.service.getAllDepartment().subscribe(result=>{
+      this.departList =result;
+    })
   }
 
+  EditFunction(Id:any){
+    debugger
+    console.log(Id);
+    this.UpdateView.loadEdit(Id);
+  }
 }

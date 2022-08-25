@@ -13,11 +13,14 @@ export class DepartmentFormComponent implements OnInit {
   closeResult = '';
   errorClass = '';
   errorMessage = '';
+  editData:any;
+  saveResponse:any;
 
   @ViewChild('content') addview! : ElementRef
   constructor(private fb: FormBuilder, private modalService: NgbModal, private service: DepartmentServiceService) {
 
     this.depForm = fb.group({
+      departmentId: [''],
       departmentName: ['',Validators.required],
 
     });
@@ -28,11 +31,27 @@ export class DepartmentFormComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  loadEdit(id:any){
+    debugger
+    this.service.getDepartment(id).subscribe(result=>{
+      this.editData = result;
+      this.depForm.setValue({departmentId: this.editData.departmentId,departmentName: this.editData.departmentName})
 
+    })
+
+  }
+
+  ClearForm(){
+    this.depForm.setValue({departmentName: ""})
+  }
   //Start insert fuction--->
   SaveData(){
     if(this.depForm.valid){
-      this.service.insertDepartment(this.depForm.getRawValue());
+      debugger
+      this.service.insertDepartment(this.depForm.getRawValue()).subscribe(result=>{
+        this.saveResponse = result;
+        console.log(this.saveResponse)
+      })
     }
     else
     {
@@ -44,6 +63,7 @@ export class DepartmentFormComponent implements OnInit {
 
   // Start Open Modal-->
   open() {
+    this.ClearForm();
     this.modalService.open( this.addview, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
     }, (reason) => {
