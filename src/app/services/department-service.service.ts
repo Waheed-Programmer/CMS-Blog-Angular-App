@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -9,4 +10,29 @@ export class DepartmentServiceService {
   readonly BaseUrl = "https://localhost:5001/api";
   constructor(private httpClient:HttpClient) { }
 
+   //Fetch data all Department from data base
+   getAllDepartment()
+   {
+     return this.httpClient.get(this.BaseUrl + '/Department/getListDepartment')
+   }
+
+   //Add new Department
+
+  insertDepartment(departmentmodel:any){
+    debugger
+
+    return this.httpClient.post(this.BaseUrl + '/Department/addDepartment',departmentmodel)
+  }
+
+  //Fetch data for single Department
+  getDepartment(Id:any)
+  {
+    return this.httpClient.get(this.BaseUrl + '/Department/GetDepartment/'+Id)
+  }
+
+  //Update Department from data base
+  updateDepartment(id:number, Departmentmodel:any){
+
+    return this.httpClient.put(this.BaseUrl + '/Student/updateStudent/'+id,Departmentmodel)
+  }
 }

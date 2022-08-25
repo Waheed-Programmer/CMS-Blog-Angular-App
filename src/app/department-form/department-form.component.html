@@ -12,8 +12,9 @@
         </div>
         <span *ngIf="departmentName && departmentName.touched && departmentName.invalid" class="error">Please Enter Valid Name</span>
         <div class="input-group">
-          <input type="submit" [disabled]="depForm.invalid" value="Save" class="btn btn-primary mt-3" >
+          <input type="submit"  value="Save" class="btn btn-primary mt-3" >
         </div>
+        <span [ngClass]="errorClass">{{errorMessage}}</span>
       </div>
     </form>
   </div>
