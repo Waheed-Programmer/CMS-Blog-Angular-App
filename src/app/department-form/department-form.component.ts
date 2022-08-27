@@ -33,6 +33,7 @@ export class DepartmentFormComponent implements OnInit {
   }
   loadEdit(id:any){
     debugger
+    this.open();
     this.service.getDepartment(id).subscribe(result=>{
       this.editData = result;
       this.depForm.setValue({departmentId: this.editData.departmentId,departmentName: this.editData.departmentName})
@@ -46,9 +47,15 @@ export class DepartmentFormComponent implements OnInit {
   }
   //Start insert fuction--->
   SaveData(){
+     debugger
     if(this.depForm.valid){
-      debugger
-      this.service.insertDepartment(this.depForm.getRawValue()).subscribe(result=>{
+      //const jsonObj: any = JSON.parse(employeeString);
+   const department: department = <department>this.depForm.getRawValue();
+   if(department.departmentId.toString() == "")
+   {
+    department.departmentId = 0;
+   }
+      this.service.insertDepartment(department).subscribe(result=>{
         this.saveResponse = result;
         console.log(this.saveResponse)
       })
@@ -63,7 +70,7 @@ export class DepartmentFormComponent implements OnInit {
 
   // Start Open Modal-->
   open() {
-    this.ClearForm();
+
     this.modalService.open( this.addview, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
     }, (reason) => {
@@ -84,4 +91,8 @@ export class DepartmentFormComponent implements OnInit {
     get departmentName(){
       return this.depForm.get('departmentName')
     }
+}
+interface department {
+  departmentId: number;
+  departmentName: string;
 }
