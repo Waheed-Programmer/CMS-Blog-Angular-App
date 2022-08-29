@@ -41,13 +41,13 @@ import { ArticlesModule } from './articles/articles.module';
   imports: [
 
     BrowserModule,
-    AppRoutingModule,
     HttpClientModule,
     FormsModule,
     NgbModule,
     ReactiveFormsModule,
     ArticlesModule,
-    StaticpagesModule
+    StaticpagesModule,
+    AppRoutingModule
 
   ],
   providers: [InspectionAPIServviceService,DepartmentServiceService],
