@@ -13,7 +13,12 @@ import { DepartmentComponent } from './department/department.component';
 import { NavbarComponent } from './layout/navbar/navbar.component';
 import { DepartmentFormComponent } from './department-form/department-form.component';
 import { DepartmentServiceService } from './services/department-service.service';
-
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
+import { BannerComponent } from './banner/banner.component';
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import { ArticlesModule } from './articles/articles.module';
+  import { StaticpagesModule } from './staticpages/staticpages.module';
 
 
 @NgModule({
@@ -25,6 +30,12 @@ import { DepartmentServiceService } from './services/department-service.service'
     DepartmentComponent,
     NavbarComponent,
     DepartmentFormComponent,
+    HeaderComponent,
+    FooterComponent,
+    BannerComponent,
+    PagenotfoundComponent,
+
+
 
   ],
   imports: [
@@ -34,7 +45,9 @@ import { DepartmentServiceService } from './services/department-service.service'
     HttpClientModule,
     FormsModule,
     NgbModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ArticlesModule,
+    StaticpagesModule
 
   ],
   providers: [InspectionAPIServviceService,DepartmentServiceService],

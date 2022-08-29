@@ -32,7 +32,7 @@ export class DepartmentFormComponent implements OnInit {
   ngOnInit(): void {
   }
   loadEdit(id:any){
-    debugger
+
     this.open();
     this.service.getDepartment(id).subscribe(result=>{
       this.editData = result;
@@ -43,11 +43,11 @@ export class DepartmentFormComponent implements OnInit {
   }
 
   ClearForm(){
-    this.depForm.setValue({departmentName: ""})
+    this.depForm.reset();
   }
   //Start insert fuction--->
   SaveData(){
-     debugger
+
     if(this.depForm.valid){
       //const jsonObj: any = JSON.parse(employeeString);
    const department: department = <department>this.depForm.getRawValue();
@@ -70,9 +70,11 @@ export class DepartmentFormComponent implements OnInit {
 
   // Start Open Modal-->
   open() {
-
+    this.ClearForm();
     this.modalService.open( this.addview, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+
       this.closeResult = `Closed with: ${result}`;
+
     }, (reason) => {
       this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
     });

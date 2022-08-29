@@ -4,7 +4,7 @@
     <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
   </div>
   <div class="modal-body">
-    <form [formGroup]="depForm" (ngSubmit)="SaveData()">
+    <form [formGroup]="depForm" (ngSubmit)="SaveData(); depForm.reset();">
       <input type="hidden" name="departmentId" formControlName="departmentId">
       <div class="mb-3">
         <label>Department Name:</label>
