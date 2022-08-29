@@ -8,7 +8,11 @@ import { Component, OnInit } from '@angular/core';
 export class HeaderComponent implements OnInit {
 
   constructor() { }
+  navbarCollapsed = true;
 
+  toggleNavbarCollapsing() {
+      this.navbarCollapsed = !this.navbarCollapsed;
+  }
   ngOnInit(): void {
   }
 
