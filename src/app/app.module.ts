@@ -18,7 +18,10 @@ import { FooterComponent } from './footer/footer.component';
 import { BannerComponent } from './banner/banner.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { ArticlesModule } from './articles/articles.module';
-  import { StaticpagesModule } from './staticpages/staticpages.module';
+import { StaticpagesModule } from './staticpages/staticpages.module';
+import { CountryFormComponent } from './country-form/country-form.component';
+import { CountryListComponent } from './country-list/country-list.component';
+
 
 
 @NgModule({
@@ -34,6 +37,9 @@ import { ArticlesModule } from './articles/articles.module';
     FooterComponent,
     BannerComponent,
     PagenotfoundComponent,
+    CountryFormComponent,
+    CountryListComponent
+
 
 
 

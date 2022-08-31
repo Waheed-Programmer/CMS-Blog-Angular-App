@@ -1,0 +1,28 @@
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Modal title</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="countryForm"  (ngSubmit)="SaveData();">
+      <div class="form-group mb-4 mt-2">
+      <input type="text" class="form-control" formControlName="countryName" placeholder="Enter country name" [ngClass]="{'is-invalid':submitted && countryForm.controls['countryName'].errors}"/>
+      <div *ngIf="{'is-invalid':submitted && countryForm.controls['countryName'].errors}" class="invalid-feedback">
+        Country is required!
+    </div>
+    </div>
+    <div class="form-group text-center">
+      <button type="submit" class="btn btn-primary me-2">Save</button>
+      <button type="submit" class="btn btn-danger">Cancel</button>
+
+    </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+  </div>
+</ng-template>
+<div class="container mt-5">
+<button class="btn btn-outline-primary mb-2 me-2" (click)="openBackDropCustomClass(content)">Add Country</button>
+</div>
+

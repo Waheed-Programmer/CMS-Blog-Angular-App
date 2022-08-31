@@ -3,6 +3,8 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormGroup, Validators,FormBuilder } from '@angular/forms';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import { DepartmentServiceService } from '../services/department-service.service';
+
+
 @Component({
   selector: 'app-department-form',
   templateUrl: './department-form.component.html',
@@ -32,7 +34,9 @@ export class DepartmentFormComponent implements OnInit {
 
 
   ngOnInit(): void {
+
   }
+
   loadEdit(id:any){
 
     this.Modelref =this.open();
