@@ -15,6 +15,8 @@ export class DepartmentFormComponent implements OnInit {
   errorMessage = '';
   editData:any;
   saveResponse:any;
+  submitted:boolean = false;
+  Modelref:any;
 
   @ViewChild('content') addview! : ElementRef
   constructor(private fb: FormBuilder, private modalService: NgbModal, private service: DepartmentServiceService) {
@@ -33,7 +35,7 @@ export class DepartmentFormComponent implements OnInit {
   }
   loadEdit(id:any){
 
-    this.open();
+    this.Modelref =this.open();
     this.service.getDepartment(id).subscribe(result=>{
       this.editData = result;
       this.depForm.setValue({departmentId: this.editData.departmentId,departmentName: this.editData.departmentName})
@@ -43,13 +45,16 @@ export class DepartmentFormComponent implements OnInit {
   }
 
   ClearForm(){
-    this.depForm.reset();
+    this.depForm.reset({
+      departmentId: "" ,
+      departmentName: ''
+    });
+
   }
   //Start insert fuction--->
   SaveData(){
+    this.submitted =true;
 
-    if(this.depForm.valid){
-      //const jsonObj: any = JSON.parse(employeeString);
    const department: department = <department>this.depForm.getRawValue();
    if(department.departmentId.toString() == "")
    {
@@ -59,18 +64,14 @@ export class DepartmentFormComponent implements OnInit {
         this.saveResponse = result;
         console.log(this.saveResponse)
       })
-    }
-    else
-    {
-      this.errorMessage = "Please enter valid data";
-      this.errorClass = "error";
-    }
+
+
   }
   //End insert fuction--->
 
   // Start Open Modal-->
   open() {
-    this.ClearForm();
+
     this.modalService.open( this.addview, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
 
       this.closeResult = `Closed with: ${result}`;
@@ -90,9 +91,7 @@ export class DepartmentFormComponent implements OnInit {
     }
   }
 // End Open Modal-->
-    get departmentName(){
-      return this.depForm.get('departmentName')
-    }
+
 }
 interface department {
   departmentId: number;
