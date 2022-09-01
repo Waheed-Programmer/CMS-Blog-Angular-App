@@ -20,7 +20,7 @@ import { CategoriesComponent } from './categories/categories.component';
   ],
   imports: [
     CommonModule,
-    ArticlesRoutingModule
+    ArticlesRoutingModule,
   ],
   exports:[
     LatestArticlesComponent
