@@ -1,6 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 /* @import "~bootstrap/dist/css/bootstrap.css" */
 @import '../node_modules/ng-alertify/dist/ng-alertify.css';
+
 /* You can add global styles to this file, and also import other style files */
 h1 {font-size: 2.4rem;margin-bottom: 30px;}
 .bg-blue {background-color:#79ce1d;}
