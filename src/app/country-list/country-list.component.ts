@@ -13,10 +13,10 @@ export class CountryListComponent implements OnInit {
   constructor(private service: CountryServiceService) { }
 
   ngOnInit(): void {
-    this.getDepartmentList();
+    this.getCountryList();
   }
 
-  getDepartmentList(){
+  getCountryList(){
     debugger
     this.service.getAllCountry().subscribe(result=>{
       this.countryList =result;

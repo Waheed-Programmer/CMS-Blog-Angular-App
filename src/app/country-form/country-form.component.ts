@@ -24,6 +24,7 @@ export class CountryFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.setFormState();
+
   }
 
   setFormState(){
@@ -48,11 +49,11 @@ export class CountryFormComponent implements OnInit {
 
   // Load Data in controll fields
   loadEdit(id:any){
-
+    this.ClearForm();
     this.Modelref =this.openBackDropCustomClass();
     this.service.getCountryById(id).subscribe(result=>{
       this.editData = result;
-      this.countryForm.patchValue({departmentId: this.editData.departmentId,departmentName: this.editData.departmentName})
+      this.countryForm.patchValue({countryId: this.editData.countryId,countryName: this.editData.countryName})
 
     })
 
