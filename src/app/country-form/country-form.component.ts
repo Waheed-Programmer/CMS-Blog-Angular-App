@@ -33,12 +33,13 @@ export class CountryFormComponent implements OnInit {
 
     });
   }
-  SaveData(data:any){
+  SaveData(){
     this.submitted =true;
     if ((this.countryForm.invalid)) {
       return;
     }
-    this.service.insertCountry(data).subscribe(result=>{
+    this.countryForm.getRawValue();
+    this.service.insertCountry(this.countryForm.getRawValue()).subscribe(result=>{
       this.saveResponse = result;
       console.log(this.saveResponse)
 
