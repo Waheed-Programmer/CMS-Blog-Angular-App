@@ -11,7 +11,10 @@ export class AppComponent {
   title = 'CMS-App';
   name = "Angular Name "
   message:any;
-  constructor(public router:Router){}
+  constructor(){}
+  ngOnInit()
+  {
+  }
   formSubmit(Data:any){
     console.log(Data);
   }

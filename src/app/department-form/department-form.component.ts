@@ -58,7 +58,9 @@ export class DepartmentFormComponent implements OnInit {
   //Start insert fuction--->
   SaveData(){
     this.submitted =true;
-
+if ((this.depForm.invalid)) {
+  return;
+}
    const department: department = <department>this.depForm.getRawValue();
    if(department.departmentId.toString() == "")
    {
