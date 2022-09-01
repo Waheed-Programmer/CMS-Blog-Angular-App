@@ -1,7 +1,7 @@
 <ng-template #content let-modal>
   <div class="modal-header">
     <h4 class="modal-title">Add Country</h4>
-    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click');countryForm.reset();"></button>
   </div>
   <div class="modal-body">
     <form [formGroup]="countryForm"  (ngSubmit)="SaveData(); countryForm.reset();">
@@ -11,7 +11,7 @@
         Country is required!
     </div>
     </div>
-    <div class="form-group text-center">
+    <div class="form-group">
       <button type="submit" class="btn btn-primary me-2">Save</button>
       <button type="submit" class="btn btn-danger" (click)="modal.close('Cross click')">Cancel</button>
 
@@ -19,7 +19,7 @@
     </form>
   </div>
   <div class="modal-footer">
-    <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+    <button type="button" class="btn btn-light" (click)="modal.close('Close click');countryForm.reset();">Close</button>
   </div>
 </ng-template>
 <div class="container mt-5">

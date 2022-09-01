@@ -2,16 +2,16 @@
 
   <h2 style="text-align: center;"> Welcome to Country!</h2><br>
   <app-country-form></app-country-form>
-  <table class="table">
-    <thead>
+  <table class="table table-striped table-bordered table-hover">
+    <thead class="bg-primary text-white">
       <tr>
-        <th scope="col">Id</th>
-        <th scope="col">Country Name</th>
+        <th >Id</th>
+        <th >Country Name</th>
         <th>Actions</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let item of countryList">
+      <tr *ngFor="let item of countryList | paginate:{itemsPerPage:5 ,currentPage:p}" >
 
         <td>{{item.countryId}} </td>
         <td>{{item.countryName}} </td>
@@ -20,5 +20,6 @@
 
     </tbody>
   </table>
+<pagination-controls class="d-flex justify-content-center" (pageChange)="p=$event"></pagination-controls>
 </div>
 

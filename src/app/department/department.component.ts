@@ -9,7 +9,7 @@ import { DepartmentServiceService } from '../services/department-service.service
   styleUrls: ['./department.component.css']
 })
 export class DepartmentComponent implements OnInit {
-
+  p:number = 1;
   constructor(private service: DepartmentServiceService) { }
   departList:any;
   @ViewChild(DepartmentFormComponent) UpdateView! : DepartmentFormComponent

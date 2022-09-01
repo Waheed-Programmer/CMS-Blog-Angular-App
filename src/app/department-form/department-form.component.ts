@@ -58,6 +58,7 @@ export class DepartmentFormComponent implements OnInit {
   //Start insert fuction--->
   SaveData(){
     this.submitted =true;
+
 if ((this.depForm.invalid)) {
   return;
 }
@@ -71,6 +72,7 @@ if ((this.depForm.invalid)) {
         console.log(this.saveResponse)
       })
 
+      this.depForm.reset();
 
   }
   //End insert fuction--->

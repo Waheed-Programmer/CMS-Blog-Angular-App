@@ -21,6 +21,11 @@ import { ArticlesModule } from './articles/articles.module';
 import { StaticpagesModule } from './staticpages/staticpages.module';
 import { CountryFormComponent } from './country-form/country-form.component';
 import { CountryListComponent } from './country-list/country-list.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { Ng2OrderPipe } from 'ng2-order-pipe';
+
 
 
 
@@ -53,7 +58,12 @@ import { CountryListComponent } from './country-list/country-list.component';
     ReactiveFormsModule,
     ArticlesModule,
     StaticpagesModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    NgxPaginationModule,
+
+
+
 
   ],
   providers: [InspectionAPIServviceService,DepartmentServiceService],

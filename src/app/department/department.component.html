@@ -2,22 +2,25 @@
 
   <h2 style="text-align: center;"> Welcome to Department!</h2><br>
   <app-department-form></app-department-form>
-  <table class="table">
-    <thead>
+
+  <table class="table table-striped table-bordered table-hover mt-5">
+    <thead class="bg-primary text-white">
       <tr>
-        <th scope="col">Id</th>
-        <th scope="col">Department Name</th>
+        <th >Id</th>
+        <th >Department Name</th>
         <th>Actions</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let item of departList">
+      <tr *ngFor="let list of departList | paginate:{itemsPerPage:5 ,currentPage:p}">
 
-        <td>{{item.departmentId}} </td>
-        <td>{{item.departmentName}} </td>
-        <td><a class="btn btn-primary" (click)="EditFunction(item.departmentId)">Edit</a></td>
+        <td>{{list.departmentId}} </td>
+        <td>{{list.departmentName}} </td>
+        <td><a class="btn btn-primary" (click)="EditFunction(list.departmentId)">Edit</a></td>
       </tr>
 
     </tbody>
+
   </table>
+  <pagination-controls class="d-flex justify-content-center" (pageChange)="p=$event"></pagination-controls>
 </div>

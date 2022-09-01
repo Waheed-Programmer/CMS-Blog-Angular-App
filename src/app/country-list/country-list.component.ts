@@ -11,6 +11,8 @@ export class CountryListComponent implements OnInit {
   countryList:any;
   @ViewChild(CountryFormComponent) UpdateView! : CountryFormComponent
   constructor(private service: CountryServiceService) { }
+  p:number = 1;
+  public pageSize = 1;
 
   ngOnInit(): void {
     this.getCountryList();
